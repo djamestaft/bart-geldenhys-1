@@ -1,9 +1,12 @@
 import type { ReactElement } from 'react'
+import type { NextPageWithLayout } from './_app'
+import { StaticImageData } from 'next/image'
+
+// Components
 import Layout from '../templates/Layout'
 import Banner from '../components/Archetypes/Banner/Banner'
 import Blurb from '../components/Archetypes/Blurb/Blurb'
-import type { NextPageWithLayout } from './_app'
-import { StaticImageData } from 'next/image'
+import ProductCard from '../components/Archetypes/ProductCard/ProductCard'
 
 // TODO: Images to come from CMS
 import img from '../../public/assets/images/banner-image.jpg';
@@ -22,6 +25,12 @@ const Page: NextPageWithLayout = () => {
       <Blurb blurbText={blurbText}></Blurb>
       <div className='section-heading'>
         <h2 className='text-center'>Treatments and Massages</h2>
+      </div>
+      <div className="product-section flex justify-center">
+        <ProductCard backgroundImage={img}></ProductCard>
+        <ProductCard backgroundImage={img}></ProductCard>
+        <ProductCard backgroundImage={img}></ProductCard>
+        <ProductCard backgroundImage={img}></ProductCard>
       </div>
     </div>
   );
