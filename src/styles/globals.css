@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../public/assets/Lato/Lato-Black.ttf');
+    src: url('../../public/assets/Lato/Lato-Bold.ttf');
+    src: url('../../public/assets/Lato/Lato-Light.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../../public/assets/Oswald/Oswald-VariableFont_wght.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+body {
+    font-family: Lato, sans-serif;
+    font-weight: 600;
+    color: #303551;
+}
+
+.nav-link {
+    padding: 10px 20px;
+    color: #303551;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid #1B3372;
+    transition: border-bottom .5s;
+}
+
+.nav-link:nth-child(4):hover {
+    border-bottom: none;
+}
+
+.mySwiper img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.section-heading {
+    height: 50px;
+}
+
+.blurb {
+    margin: 4rem;
+    padding: 2rem;
+}
+
+h3, h2 {
+    font-family: Oswald, sans-serif;
+    font-size: 28px;
+}
