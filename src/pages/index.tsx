@@ -7,6 +7,7 @@ import Layout from '../templates/Layout'
 import Banner from '../components/Archetypes/Banner/Banner'
 import Blurb from '../components/Archetypes/Blurb/Blurb'
 import ProductCard from '../components/Archetypes/ProductCard/ProductCard'
+import UpcomingWorkshops from '../components/Organisms/UpcomingWorkshops/UpcomingWorkshops'
 
 // TODO: Images to come from CMS
 import img from '../../public/assets/images/banner-image.jpg';
@@ -22,6 +23,7 @@ const Page: NextPageWithLayout = () => {
   return (
     <div>
       <Banner bannerImages={imageArray} overlay={false}></Banner>
+
       <Blurb blurbText={blurbText}></Blurb>
       <div className='section-heading'>
         <h2 className='text-center'>Treatments and Massages</h2>
@@ -31,6 +33,16 @@ const Page: NextPageWithLayout = () => {
         <ProductCard backgroundImage={img}></ProductCard>
         <ProductCard backgroundImage={img}></ProductCard>
         <ProductCard backgroundImage={img}></ProductCard>
+      </div>
+
+      <div className="cta-section flex justify-center flex-col">
+        <h2 className='find-your-balance flex justify-center border-black border-t border-b'>Find Your Balance</h2>
+        <button className='cta-button uppercase flex justify-center'>Book Now</button>
+        <a className='cta-link capatilize flex justify-center' href='/contact'>Or Contact Us for a Booking</a>
+      </div>
+
+      <UpcomingWorkshops></UpcomingWorkshops>
+      <div className="random-image">
       </div>
     </div>
   );

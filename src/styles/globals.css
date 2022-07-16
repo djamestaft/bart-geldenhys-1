@@ -52,6 +52,7 @@ body {
 .blurb {
     margin: 4rem;
     padding: 2rem;
+    background: #F5F5F5;
 }
 
 h3, h2 {
@@ -59,15 +60,92 @@ h3, h2 {
     font-size: 28px;
 }
 
+h4 {
+    font-family: Oswald;
+    font-size: 18px;
+}
+
 .product-card {
     width: 250px;
+    height: 390px;
+    margin-right: 32px;
 }
 
 .product-card .product-card-image {
     height: 180px;
-    width: 200px;
+    width: 250px;
+    margin-bottom: 16px;
 }
 
 .product-card h4 {
     font-family: Oswald, sans-serif;
+}
+
+.cta-button {
+    background: #424B6B;
+    width: 192px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+.cta-link {
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.find-your-balance {
+    padding: 16px 0;
+    margin: auto;
+    width: 305px;
+    font-weight: 100;
+    font-size: 22px;
+    letter-spacing: 3px;
+}
+
+.worskshop-section-heading {
+    letter-spacing: 4px;
+    font-size: 22px;
+    margin: 16px;
+}
+
+.ws-title-section {
+    width: 243px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.upcoming-workshops {
+    margin: 50px 4rem;
+    background: #F5F5F5;
+    padding: 1rem;
+    position: relative;
+}
+
+.workshop-times {
+    font-size: 14px;
+}
+
+.ws-description {
+    width: 100%;
+    height: 76px;
+}
+
+.ws-info-button {
+    width: 133px;
+    height: 56px;
+    margin: 0 15px;
+    padding: 0 44px;
+}
+
+.random-image {
+    height: 347px;
+    width: 100%;
+    object-fit: cover;
+    background-image: url('../../public/assets/images/banner-image-2.jpg');
+    margin-top: -180px;
+    position: absolute;
+    z-index: -1;
 }

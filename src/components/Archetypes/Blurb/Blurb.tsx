@@ -6,7 +6,7 @@ interface IProps {
 
 function Blurb(props: IProps) {
   return (
-    <div className='blurb bg-gray-300 text-center uppercase'>
+    <div className='blurb text-center uppercase'>
       {props.blurbText}
     </div>
   )

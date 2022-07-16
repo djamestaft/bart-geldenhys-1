@@ -13,7 +13,7 @@ interface iProps {
 function Banner(props: iProps) {
   return (
     <div className={props.overlay ? 'overlay-image' : ''}>
-      <Swiper 
+      <Swiper
         spaceBetween={30}
         centeredSlides={true}
         speed={1000}
@@ -29,7 +29,7 @@ function Banner(props: iProps) {
         className="mySwiper">
           {props.bannerImages.map((e: any) => {
             return (
-              <SwiperSlide><img src={e.src} alt="" height="400px" width="100%" /></SwiperSlide>
+              <SwiperSlide key={e}><img src={e.src} alt="" height="400px" width="100%" /></SwiperSlide>
             );
           })}
       </Swiper>
