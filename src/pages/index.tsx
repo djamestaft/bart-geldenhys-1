@@ -43,14 +43,14 @@ const Page: NextPageWithLayout = () => {
       </div>
       <div className="product-section flex justify-center">
 
-        {products.map((e: any, i: number) => {
+        {products.map(({ attributes }, i: number) => {
           return (
             <ProductCard 
               key={i}
               backgroundImage={'http://127.0.0.1:1337' + e.attributes.productItem.data.attributes.url}
-              productTitle={e.attributes.Heading}
-              productDescription={e.attributes.description}
-              productPrice={e.attributes.productPrice}
+              productTitle={attributes.heading}
+              productDescription={attributes.description}
+              productPrice={attributes.productPrice}
             >
             </ProductCard>
           );
