@@ -30,7 +30,7 @@ const Page: NextPageWithLayout = () => {
 
 
   const homeBlurb = blurbTypes.status === 'success' ? blurbTypes.data.blurbTypes.data.attributes.blurb : ''
-  const products = productTypes.status === 'success' ? productTypes.data.productsTypes.data : ''
+  const products = productTypes.status === 'success' ? productTypes.data.productsTypes.data : []
   console.log('🚀 ~ file: index.tsx ~ line 31 ~ products', products);
   console.log('🚀 ~ file: index.tsx ~ line 31 ~ products', typeof products);
   return (
@@ -43,9 +43,10 @@ const Page: NextPageWithLayout = () => {
       </div>
       <div className="product-section flex justify-center">
 
-        {Array.from(products).map((e: any) => {
+        {products.map((e: any, i: number) => {
           return (
             <ProductCard 
+              key={i}
               backgroundImage={'http://127.0.0.1:1337' + e.attributes.productItem.data.attributes.url}
               productTitle={e.attributes.Heading}
               productDescription={e.attributes.description}
