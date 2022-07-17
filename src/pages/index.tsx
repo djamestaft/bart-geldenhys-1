@@ -14,25 +14,46 @@ import img from '../../public/assets/images/banner-image.jpg';
 import img2 from '../../public/assets/images/banner-image-2.jpg';
 import img3 from '../../public/assets/images/banner-image-3.jpg';
 import img4 from '../../public/assets/images/banner-image-4.jpg';
+import { trpc } from '../utils/trpc'
+
+
 
 // TODO: Mock data to come from CMS
 const imageArray: Array<StaticImageData> = [img, img2, img3, img4];
-const blurbText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore sed do eiusmod tempor incididunt ut labore  labore sed do eiusmod tempor incididunt ut labore  labore sed do eiusmod tempor incididunt ut labore'
+
 
 const Page: NextPageWithLayout = () => {
+  const blurbTypes = trpc.useQuery(['strapi.blurbTypes'])
+  const productTypes = trpc.useQuery(['strapi.productItems'])
+  console.log('🚀 ~ file: index.tsx ~ line 26 ~ productTypes', productTypes)
+  // console.log('blurbTypes', blurbTypes)
+
+
+  const homeBlurb = blurbTypes.status === 'success' ? blurbTypes.data.blurbTypes.data.attributes.blurb : ''
+  const products = productTypes.status === 'success' ? productTypes.data.productsTypes.data : ''
+  console.log('🚀 ~ file: index.tsx ~ line 31 ~ products', products);
+  console.log('🚀 ~ file: index.tsx ~ line 31 ~ products', typeof products);
   return (
     <div>
       <Banner bannerImages={imageArray} overlay={false}></Banner>
 
-      <Blurb blurbText={blurbText}></Blurb>
+      <Blurb blurbText={homeBlurb}></Blurb>
       <div className='section-heading'>
         <h2 className='text-center'>Treatments and Massages</h2>
       </div>
       <div className="product-section flex justify-center">
-        <ProductCard backgroundImage={img}></ProductCard>
-        <ProductCard backgroundImage={img}></ProductCard>
-        <ProductCard backgroundImage={img}></ProductCard>
-        <ProductCard backgroundImage={img}></ProductCard>
+
+        {Array.from(products).map((e: any) => {
+          return (
+            <ProductCard 
+              backgroundImage={'http://127.0.0.1:1337' + e.attributes.productItem.data.attributes.url}
+              productTitle={e.attributes.Heading}
+              productDescription={e.attributes.description}
+              productPrice={e.attributes.productPrice}
+            >
+            </ProductCard>
+          );
+        })}
       </div>
 
       <div className="cta-section flex justify-center flex-col">
@@ -48,7 +69,7 @@ const Page: NextPageWithLayout = () => {
   );
 }
 
-Page.getLayout = function getLayout(page: ReactElement) {
+Page.getLayout = function getLayout() {
   return (
     <Layout>
     </Layout>

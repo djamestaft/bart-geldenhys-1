@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_blurbs",
+  "info": {
+    "singularName": "home-blurb",
+    "pluralName": "home-blurbs",
+    "displayName": "home blurb"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blurb": {
+      "type": "richtext"
+    }
+  }
+}

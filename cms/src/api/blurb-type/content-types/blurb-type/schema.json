@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blurb_types",
+  "info": {
+    "singularName": "blurb-type",
+    "pluralName": "blurb-types",
+    "displayName": "blurbType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blurbType": {
+      "type": "richtext"
+    }
+  }
+}
