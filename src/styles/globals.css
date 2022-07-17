@@ -25,6 +25,16 @@ body {
     color: #303551;
 }
 
+.navbar-list {
+    max-height: 50px;
+}
+
+.logo-image {
+    height: 124px;
+    top: 0;
+    display: flex;
+}
+
 .nav-link {
     padding: 10px 20px;
     color: #303551;
