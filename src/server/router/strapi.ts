@@ -22,7 +22,7 @@ export interface BlurbTypesObject {
 }
 
 export interface productAttributes {
-    heading: string;
+    Heading: string;
     productPrice: number;
     productItem: productImageItem;
     description: string;
