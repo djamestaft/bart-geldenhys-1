@@ -16,8 +16,6 @@ import img3 from '../../public/assets/images/banner-image-3.jpg';
 import img4 from '../../public/assets/images/banner-image-4.jpg';
 import { trpc } from '../utils/trpc'
 
-
-
 // TODO: Mock data to come from CMS
 const imageArray: Array<StaticImageData> = [img, img2, img3, img4]
 
@@ -25,17 +23,26 @@ const imageArray: Array<StaticImageData> = [img, img2, img3, img4]
 const Page: NextPageWithLayout = () => {
   const blurbTypes = trpc.useQuery(['strapi.blurbTypes'])
   const productTypes = trpc.useQuery(['strapi.productItems'])  
+  const pageSettings = trpc.useQuery(['strapi.pageSettings'])  
 
   const homeBlurb = blurbTypes.status === 'success' ? blurbTypes.data.blurbTypes.data.attributes.blurb : ''
   const products = productTypes.status === 'success' ? productTypes.data.productsTypes.data : []
+  const pSettings = pageSettings.status === 'success' ? pageSettings.data.pageSettings.data.attributes.pageSettings : {}
   
+  const {
+    sectionHeading,
+    buttonText,
+    linkText,
+    callToActionTitleText,
+  } = pSettings
+
   return (
     <div>
       <Banner bannerImages={imageArray} overlay={false}></Banner>
 
       <Blurb blurbText={homeBlurb}></Blurb>
       <div className='section-heading'>
-        <h2 className='text-center'>Treatments and Massages</h2>
+        <h2 className='text-center'>{sectionHeading}</h2>
       </div>
       <div className="product-section flex justify-center">
 
@@ -54,9 +61,9 @@ const Page: NextPageWithLayout = () => {
       </div>
 
       <div className="cta-section flex justify-center flex-col">
-        <h2 className='find-your-balance flex justify-center border-black border-t border-b'>Find Your Balance</h2>
-        <button className='cta-button uppercase flex justify-center'>Book Now</button>
-        <a className='cta-link capatilize flex justify-center' href='/contact'>Or Contact Us for a Booking</a>
+        <h2 className='find-your-balance flex justify-center border-black border-t border-b'>{callToActionTitleText}</h2>
+        <button className='cta-button uppercase flex justify-center'>{buttonText}</button>
+        <a className='cta-link capatilize flex justify-center' href='/contact'>{linkText}</a>
       </div>
 
       <UpcomingWorkshops></UpcomingWorkshops>

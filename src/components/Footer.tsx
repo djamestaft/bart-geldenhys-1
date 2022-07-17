@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return <>
-        <div className='footer flex flex-col h-screen justify-end'>
+        <div className='footer flex flex-col justify-end'>
             <div className='flex'>
                 <div>Newsletter</div>
                 <div>Social Media</div>

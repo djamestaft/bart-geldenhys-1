@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_settings",
+  "info": {
+    "singularName": "page-setting",
+    "pluralName": "page-settings",
+    "displayName": "page setting"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageSettings": {
+      "type": "json"
+    }
+  }
+}

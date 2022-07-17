@@ -52,7 +52,6 @@ export interface ProductTypesObject {
     meta: ProductMeta;
 }
 
-
 getProducts
 
 async function getProducts(): Promise<ProductTypesObject> {
@@ -75,6 +74,16 @@ async function getBlurbs(): Promise<BlurbTypesObject> {
     return await productTypes.json()
 }
 
+async function getPageSettings(): Promise<any> {
+    const fetch = getFetch()
+      const headers = new Headers()
+      headers.set('Authorization', `Bearer 17f7534f694dfc985500bb70249d8a3c57be03e5b14ecef18559ad3f16bc9cccf0569fc717b2013250baba449864cc0a3ecee59f9d378efe4eff456b03e96c226ea663349afabc0c676253d43d314f11891af7fe54df70b0f40558d1b4ac64ca714d806ed82b28252ee7f85c7ea33b4276e78c531d70e5aa44e8acbff5554a2d`)
+    const pageSettings = await fetch('http://127.0.0.1:1337/api/page-setting', {
+        headers,
+    })
+    return await pageSettings.json()
+}
+
 export const strapiRouter = createRouter().query("blurbTypes", {
   async resolve() {
       
@@ -92,6 +101,15 @@ export const strapiRouter = createRouter().query("blurbTypes", {
       
       return {
           productsTypes: products,
+      };
+    },
+  }).query("pageSettings", {
+    async resolve() {
+        
+      const pageSettings = await getPageSettings();
+      
+      return {
+          pageSettings: pageSettings,
       };
     },
   });
