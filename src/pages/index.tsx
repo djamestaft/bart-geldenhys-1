@@ -20,9 +20,9 @@ const imageArray: Array<StaticImageData> = [img, img2, img3, img4]
 
 
 const Page: NextPageWithLayout = () => {
+  const pageSettings = trpc.useQuery(['strapi.pageSettings'])  
   const blurbTypes = trpc.useQuery(['strapi.blurbTypes'])
   const productTypes = trpc.useQuery(['strapi.productItems'])  
-  const pageSettings = trpc.useQuery(['strapi.pageSettings'])  
   const workshops = trpc.useQuery(['strapi.workshops'])  
 
   const homeBlurb = blurbTypes.status === 'success' ? blurbTypes.data.blurbTypes.data.attributes.blurb : ''
@@ -30,25 +30,25 @@ const Page: NextPageWithLayout = () => {
   const pSettings = pageSettings.status === 'success' ? pageSettings.data.pageSettings.data.attributes.pageSettings : {}
   const workshopsAll = workshops.status === 'success' ? workshops.data.workshops.data : []
   
-  console.log('🚀 ~ file: index.tsx ~ line 33 ~ workshopsAll', workshopsAll);
-  
   const {
     sectionHeading,
     buttonText,
     linkText,
     callToActionTitleText,
+    workshopsTitle,
   } = pSettings
 
   return (
     <div>
       <Banner bannerImages={imageArray} overlay={false}></Banner>
 
-      <Blurb blurbText={homeBlurb}></Blurb>
+      <Blurb blurbText={homeBlurb} />
+
       <div className='section-heading'>
         <h2 className='text-center'>{sectionHeading}</h2>
       </div>
-      <div className="product-section flex justify-center">
 
+      <div className="product-section flex justify-center">
         {products.map(({ attributes }, i: number) => {
           return (
             <ProductCard 
@@ -69,7 +69,11 @@ const Page: NextPageWithLayout = () => {
         <a className='cta-link capatilize flex justify-center' href='/contact'>{linkText}</a>
       </div>
 
-      <UpcomingWorkshops workshops={workshopsAll}/> 
+      <UpcomingWorkshops  
+        workshopsTitle={workshopsTitle}
+        workshops={workshopsAll}
+      />
+       
       <div className="random-image">
       </div>
     </div>

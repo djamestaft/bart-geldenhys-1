@@ -3,7 +3,7 @@ import React from 'react'
 function UpcomingWorkshops(props: any) {
   return (
     <div className='upcoming-workshops'>
-      <h2 className='worskshop-section-heading flex justify-center'>Upcoming Workshops</h2>
+      <h2 className='worskshop-section-heading flex justify-center'>{props.workshopsTitle}</h2>
       {props.workshops.map((e: any, i: number) => {
         return <div className='workshop-item flex m-3' key={i}>
           <div className='ws-title-section '>
