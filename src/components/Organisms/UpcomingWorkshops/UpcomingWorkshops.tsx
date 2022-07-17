@@ -2,11 +2,13 @@ import React from 'react'
 
 const workshops = [
   {
+    id: 1,
     title: 'workshop 1',
     times: 'Wed 9am - 11am',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in '
   },
   {
+    id: 2,
     title: 'workshop 2',
     times: 'Wed 9am - 11am',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in '
@@ -18,7 +20,7 @@ function UpcomingWorkshops() {
     <div className='upcoming-workshops'>
       <h2 className='worskshop-section-heading flex justify-center'>Upcoming Workshops</h2>
       {workshops.map(e => {
-        return <div className='workshop-item flex m-3'>
+        return <div className='workshop-item flex m-3' key={e.id}>
           <div className='ws-title-section '>
             <h4 className='font-bold'>{e.title}</h4>
             <span className='workshop-times'>{e.times}</span>

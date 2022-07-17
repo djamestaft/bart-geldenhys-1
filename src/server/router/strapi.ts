@@ -24,10 +24,19 @@ export interface BlurbTypesObject {
 export interface productAttributes {
     heading: string;
     productPrice: number;
+    productItem: productImageItem;
     description: string;
     createdAt: Date;
     updatedAt: Date;
     publishedAt: Date;
+}
+
+interface productImageItem {
+    data: {
+        attributes: {
+            url: string
+        }
+    }
 }
 
 export interface ProductData {

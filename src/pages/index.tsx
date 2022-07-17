@@ -19,20 +19,16 @@ import { trpc } from '../utils/trpc'
 
 
 // TODO: Mock data to come from CMS
-const imageArray: Array<StaticImageData> = [img, img2, img3, img4];
+const imageArray: Array<StaticImageData> = [img, img2, img3, img4]
 
 
 const Page: NextPageWithLayout = () => {
   const blurbTypes = trpc.useQuery(['strapi.blurbTypes'])
-  const productTypes = trpc.useQuery(['strapi.productItems'])
-  console.log('🚀 ~ file: index.tsx ~ line 26 ~ productTypes', productTypes)
-  // console.log('blurbTypes', blurbTypes)
-
+  const productTypes = trpc.useQuery(['strapi.productItems'])  
 
   const homeBlurb = blurbTypes.status === 'success' ? blurbTypes.data.blurbTypes.data.attributes.blurb : ''
   const products = productTypes.status === 'success' ? productTypes.data.productsTypes.data : []
-  console.log('🚀 ~ file: index.tsx ~ line 31 ~ products', products);
-  console.log('🚀 ~ file: index.tsx ~ line 31 ~ products', typeof products);
+  
   return (
     <div>
       <Banner bannerImages={imageArray} overlay={false}></Banner>
@@ -47,7 +43,7 @@ const Page: NextPageWithLayout = () => {
           return (
             <ProductCard 
               key={i}
-              backgroundImage={'http://127.0.0.1:1337' + e.attributes.productItem.data.attributes.url}
+              backgroundImage={'http://127.0.0.1:1337' + attributes.productItem.data.attributes.url}
               productTitle={attributes.heading}
               productDescription={attributes.description}
               productPrice={attributes.productPrice}
