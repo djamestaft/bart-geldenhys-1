@@ -20,7 +20,7 @@ type AppPropsWithLayout = AppProps & {
 const MyApp = ({ Component, pageProps } : AppPropsWithLayout) => {
   return (
     <Layout>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </Layout> 
   );
 };
