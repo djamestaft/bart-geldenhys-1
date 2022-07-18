@@ -160,8 +160,7 @@ h4 {
     width: 100%;
     object-fit: cover;
     background-image: url('../../public/assets/images/banner-image-2.jpg');
-    margin-top: -180px;
-    position: absolute;
+    margin-top: -200px;
     background-size: cover;
     background-position: center center;
     z-index: -1;
@@ -170,8 +169,4 @@ h4 {
 .footer {
     background-color: #F5F5F5;
     width: 90%;
-}
-
-.email-button {
-
 }
