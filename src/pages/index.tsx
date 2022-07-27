@@ -14,6 +14,7 @@ import img2 from '../../public/assets/images/banner-image-2.jpg';
 import img3 from '../../public/assets/images/banner-image-3.jpg';
 import img4 from '../../public/assets/images/banner-image-4.jpg';
 import { trpc } from '../utils/trpc'
+import Link from 'next/link'
 
 // TODO: Mock data to come from CMS
 const imageArray: Array<StaticImageData> = [img, img2, img3, img4]
@@ -66,7 +67,7 @@ const Page: NextPageWithLayout = () => {
       <div className="cta-section flex justify-center flex-col">
         <h2 className='find-your-balance flex justify-center border-black border-t border-b'>{callToActionTitleText}</h2>
         <button className='cta-button uppercase flex justify-center'>{buttonText}</button>
-        <a className='cta-link capatilize flex justify-center' href='/contact'>{linkText}</a>
+        <Link className='cta-link capatilize flex justify-center' href='/contact'>{linkText}</Link>
       </div>
 
       <UpcomingWorkshops  
