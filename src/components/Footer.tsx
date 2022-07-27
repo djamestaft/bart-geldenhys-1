@@ -7,7 +7,7 @@ function Footer() {
                 <div>
                     <div className='flex flex-col text-center'>
                         <h3 className='text-center m-5'>Newsletter</h3>
-                        <p className='text-center mb-5 text-xs'>Don't stop believing</p>
+                        <p className='text-center mb-5 text-xs'>Don&apos;t stop believing</p>
                         <div className='flex mb-10 justify-center'>
                             <input className='email-input p-3' type="text" placeholder='Email Here'/>
                             <button className='email-button bg-black text-white p-5'>Email</button>
