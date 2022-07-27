@@ -53,7 +53,7 @@ const Page: NextPageWithLayout = () => {
           return (
             <ProductCard 
               key={i}
-              backgroundImage={'http://127.0.0.1:1337' + attributes.productItem.data.attributes.url}
+              backgroundImage={attributes.productItem.data.attributes.url}
               productTitle={attributes.Heading}
               productDescription={attributes.description}
               productPrice={attributes.productPrice}
