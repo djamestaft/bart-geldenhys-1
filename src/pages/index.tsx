@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from './_app'
 import { StaticImageData } from 'next/image'
 
@@ -14,41 +13,74 @@ import img from '../../public/assets/images/banner-image.jpg';
 import img2 from '../../public/assets/images/banner-image-2.jpg';
 import img3 from '../../public/assets/images/banner-image-3.jpg';
 import img4 from '../../public/assets/images/banner-image-4.jpg';
+import { trpc } from '../utils/trpc'
 
 // TODO: Mock data to come from CMS
-const imageArray: Array<StaticImageData> = [img, img2, img3, img4];
-const blurbText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore sed do eiusmod tempor incididunt ut labore  labore sed do eiusmod tempor incididunt ut labore  labore sed do eiusmod tempor incididunt ut labore'
+const imageArray: Array<StaticImageData> = [img, img2, img3, img4]
+
 
 const Page: NextPageWithLayout = () => {
+  const pageSettings = trpc.useQuery(['strapi.pageSettings'])  
+  const blurbTypes = trpc.useQuery(['strapi.blurbTypes'])
+  const productTypes = trpc.useQuery(['strapi.productItems'])  
+  const workshops = trpc.useQuery(['strapi.workshops'])  
+
+  const homeBlurb = blurbTypes.status === 'success' ? blurbTypes.data.blurbTypes.data.attributes.blurb : ''
+  const products = productTypes.status === 'success' ? productTypes.data.productsTypes.data : []
+  const pSettings = pageSettings.status === 'success' ? pageSettings.data.pageSettings.data.attributes.pageSettings : {}
+  const workshopsAll = workshops.status === 'success' ? workshops.data.workshops.data : []
+  
+  const {
+    sectionHeading,
+    buttonText,
+    linkText,
+    callToActionTitleText,
+    workshopsTitle,
+  } = pSettings
+
   return (
     <div>
       <Banner bannerImages={imageArray} overlay={false}></Banner>
 
-      <Blurb blurbText={blurbText}></Blurb>
+      <Blurb blurbText={homeBlurb} />
+
       <div className='section-heading'>
-        <h2 className='text-center'>Treatments and Massages</h2>
+        <h2 className='text-center'>{sectionHeading}</h2>
       </div>
+
       <div className="product-section flex justify-center">
-        <ProductCard backgroundImage={img}></ProductCard>
-        <ProductCard backgroundImage={img}></ProductCard>
-        <ProductCard backgroundImage={img}></ProductCard>
-        <ProductCard backgroundImage={img}></ProductCard>
+        {products.map(({ attributes }, i: number) => {
+          return (
+            <ProductCard 
+              key={i}
+              backgroundImage={attributes.productItem.data.attributes.url}
+              productTitle={attributes.Heading}
+              productDescription={attributes.description}
+              productPrice={attributes.productPrice}
+            >
+            </ProductCard>
+          );
+        })}
       </div>
 
       <div className="cta-section flex justify-center flex-col">
-        <h2 className='find-your-balance flex justify-center border-black border-t border-b'>Find Your Balance</h2>
-        <button className='cta-button uppercase flex justify-center'>Book Now</button>
-        <a className='cta-link capatilize flex justify-center' href='/contact'>Or Contact Us for a Booking</a>
+        <h2 className='find-your-balance flex justify-center border-black border-t border-b'>{callToActionTitleText}</h2>
+        <button className='cta-button uppercase flex justify-center'>{buttonText}</button>
+        <a className='cta-link capatilize flex justify-center' href='/contact'>{linkText}</a>
       </div>
 
-      <UpcomingWorkshops></UpcomingWorkshops>
+      <UpcomingWorkshops  
+        workshopsTitle={workshopsTitle}
+        workshops={workshopsAll}
+      />
+       
       <div className="random-image">
       </div>
     </div>
   );
 }
 
-Page.getLayout = function getLayout(page: ReactElement) {
+Page.getLayout = function getLayout() {
   return (
     <Layout>
     </Layout>

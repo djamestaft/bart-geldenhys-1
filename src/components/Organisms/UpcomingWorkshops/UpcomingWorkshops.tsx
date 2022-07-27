@@ -1,30 +1,17 @@
 import React from 'react'
 
-const workshops = [
-  {
-    title: 'workshop 1',
-    times: 'Wed 9am - 11am',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in '
-  },
-  {
-    title: 'workshop 2',
-    times: 'Wed 9am - 11am',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in '
-  }
-]
-
-function UpcomingWorkshops() {
+function UpcomingWorkshops(props: any) {
   return (
     <div className='upcoming-workshops'>
-      <h2 className='worskshop-section-heading flex justify-center'>Upcoming Workshops</h2>
-      {workshops.map(e => {
-        return <div className='workshop-item flex m-3'>
+      <h2 className='worskshop-section-heading flex justify-center'>{props.workshopsTitle}</h2>
+      {props.workshops.map((e: any, i: number) => {
+        return <div className='workshop-item flex m-3' key={i}>
           <div className='ws-title-section '>
-            <h4 className='font-bold'>{e.title}</h4>
-            <span className='workshop-times'>{e.times}</span>
+            <h4 className='font-bold'>{e.attributes.workshopTitle}</h4>
+            <span className='workshop-times'>{e.attributes.times}</span>
           </div>
           <div className='ws-description'>
-            <p>{e.description}</p>
+            <p>{e.attributes.workshopDescription}</p>
           </div>
           <button className='ws-info-button border-black border'>INFO</button>
         </div>
