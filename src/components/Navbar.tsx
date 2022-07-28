@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import img4 from '../../public/assets/images/bg-logo.svg';
-console.log('🚀 ~ file: Navbar.tsx ~ line 4 ~ img4', img4)
 
 function Navbar() {
   return (
