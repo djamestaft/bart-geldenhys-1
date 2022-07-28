@@ -67,6 +67,7 @@ const Page: NextPageWithLayout = () => {
       <div className="cta-section flex justify-center flex-col">
         <h2 className='find-your-balance flex justify-center border-black border-t border-b'>{callToActionTitleText}</h2>
         <button className='cta-button uppercase flex justify-center'>{buttonText}</button>
+
         <Link className='cta-link capatilize flex justify-center' href='/contact'><a>{linkText}</a></Link>
       </div>
 
