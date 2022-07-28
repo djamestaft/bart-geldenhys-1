@@ -1,4 +1,5 @@
-import Image, { StaticImageData } from 'next/image'
+
+import { StaticImageData } from 'next/image'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from "swiper";
@@ -29,9 +30,7 @@ function Banner(props: iProps) {
         className="mySwiper">
           {props.bannerImages.map((e: any) => {
             return (
-              <SwiperSlide key={e.id}>                
-                <Image src={e.src} objectFit="cover" height="600px" width="1600px" alt="" key={e.id} />
-              </SwiperSlide>
+              <SwiperSlide key={e.id}><img src={e.src} alt="" height="400px" width="100%" key={e.id} /></SwiperSlide>
             );
           })}
       </Swiper>
