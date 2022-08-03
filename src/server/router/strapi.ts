@@ -57,8 +57,8 @@ getProducts
 async function getProducts(): Promise<ProductTypesObject> {
     const fetch = getFetch()
       const headers = new Headers()
-      headers.set('Authorization', `Bearer 17f7534f694dfc985500bb70249d8a3c57be03e5b14ecef18559ad3f16bc9cccf0569fc717b2013250baba449864cc0a3ecee59f9d378efe4eff456b03e96c226ea663349afabc0c676253d43d314f11891af7fe54df70b0f40558d1b4ac64ca714d806ed82b28252ee7f85c7ea33b4276e78c531d70e5aa44e8acbff5554a2d`)
-    const blurbTypes = await fetch('http://127.0.0.1:1337/api/product-items?populate=%2A ', {
+      headers.set('Authorization', `Bearer ac75024efcb0fd727a8b6efc51e1cf9dd9f6797331ea47bc8940ec5c6e7b52b8f63ca1284641705285bb2a105d76b9b47cd5d28d4220c5c97d053b518487b72e95665c038a9a600740f63435f2efe51f682f66f6833400bf7a3a27a148f860c7856a731f7b9ad24df1af1fd638dd4e9b1f8ae2b54fc4082815f12e54c60e412e`)
+    const blurbTypes = await fetch('https://bart-geldenhys-cms-production.up.railway.app/api/product-items?populate=%2A ', {
         headers,
     })
     return await blurbTypes.json()
@@ -67,8 +67,8 @@ async function getProducts(): Promise<ProductTypesObject> {
 async function getBlurbs(): Promise<BlurbTypesObject> {
     const fetch = getFetch()
       const headers = new Headers()
-      headers.set('Authorization', `Bearer 17f7534f694dfc985500bb70249d8a3c57be03e5b14ecef18559ad3f16bc9cccf0569fc717b2013250baba449864cc0a3ecee59f9d378efe4eff456b03e96c226ea663349afabc0c676253d43d314f11891af7fe54df70b0f40558d1b4ac64ca714d806ed82b28252ee7f85c7ea33b4276e78c531d70e5aa44e8acbff5554a2d`)
-    const productTypes = await fetch('http://127.0.0.1:1337/api/home-blurb', {
+      headers.set('Authorization', `Bearer ac75024efcb0fd727a8b6efc51e1cf9dd9f6797331ea47bc8940ec5c6e7b52b8f63ca1284641705285bb2a105d76b9b47cd5d28d4220c5c97d053b518487b72e95665c038a9a600740f63435f2efe51f682f66f6833400bf7a3a27a148f860c7856a731f7b9ad24df1af1fd638dd4e9b1f8ae2b54fc4082815f12e54c60e412e`)
+    const productTypes = await fetch('https://bart-geldenhys-cms-production.up.railway.app/api/home-blurb', {
         headers,
     })
     return await productTypes.json()
@@ -77,8 +77,8 @@ async function getBlurbs(): Promise<BlurbTypesObject> {
 async function getPageSettings(): Promise<any> {
     const fetch = getFetch()
       const headers = new Headers()
-      headers.set('Authorization', `Bearer 17f7534f694dfc985500bb70249d8a3c57be03e5b14ecef18559ad3f16bc9cccf0569fc717b2013250baba449864cc0a3ecee59f9d378efe4eff456b03e96c226ea663349afabc0c676253d43d314f11891af7fe54df70b0f40558d1b4ac64ca714d806ed82b28252ee7f85c7ea33b4276e78c531d70e5aa44e8acbff5554a2d`)
-    const pageSettings = await fetch('http://127.0.0.1:1337/api/page-setting', {
+      headers.set('Authorization', `Bearer ac75024efcb0fd727a8b6efc51e1cf9dd9f6797331ea47bc8940ec5c6e7b52b8f63ca1284641705285bb2a105d76b9b47cd5d28d4220c5c97d053b518487b72e95665c038a9a600740f63435f2efe51f682f66f6833400bf7a3a27a148f860c7856a731f7b9ad24df1af1fd638dd4e9b1f8ae2b54fc4082815f12e54c60e412e`)
+    const pageSettings = await fetch('https://bart-geldenhys-cms-production.up.railway.app/api/page-setting', {
         headers,
     })
     return await pageSettings.json()
@@ -87,8 +87,8 @@ async function getPageSettings(): Promise<any> {
 async function getWorkshops(): Promise<any> {
     const fetch = getFetch()
       const headers = new Headers()
-      headers.set('Authorization', `Bearer 17f7534f694dfc985500bb70249d8a3c57be03e5b14ecef18559ad3f16bc9cccf0569fc717b2013250baba449864cc0a3ecee59f9d378efe4eff456b03e96c226ea663349afabc0c676253d43d314f11891af7fe54df70b0f40558d1b4ac64ca714d806ed82b28252ee7f85c7ea33b4276e78c531d70e5aa44e8acbff5554a2d`)
-    const workshops = await fetch('http://127.0.0.1:1337/api/workshops', {
+      headers.set('Authorization', `Bearer ac75024efcb0fd727a8b6efc51e1cf9dd9f6797331ea47bc8940ec5c6e7b52b8f63ca1284641705285bb2a105d76b9b47cd5d28d4220c5c97d053b518487b72e95665c038a9a600740f63435f2efe51f682f66f6833400bf7a3a27a148f860c7856a731f7b9ad24df1af1fd638dd4e9b1f8ae2b54fc4082815f12e54c60e412e`)
+    const workshops = await fetch('https://bart-geldenhys-cms-production.up.railway.app/api/workshops', {
         headers,
     })
     return await workshops.json()
