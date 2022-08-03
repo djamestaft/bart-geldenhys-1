@@ -64,11 +64,11 @@ const Page: NextPageWithLayout = () => {
         })}
       </div>
 
-      <div className="cta-section flex justify-center flex-col">
+      <div className="cta-section flex justify-center flex-col m-auto">
         <h2 className='find-your-balance flex justify-center border-black border-t border-b'>{callToActionTitleText}</h2>
         <button className='cta-button uppercase flex justify-center'>{buttonText}</button>
 
-        <Link className='cta-link capatilize flex justify-center' href='/contact'><a>{linkText}</a></Link>
+        <Link className='cta-link capatilize flex justify-center' href='/contact'><a className='justify-center'>{linkText}</a></Link>
       </div>
 
       <UpcomingWorkshops  
