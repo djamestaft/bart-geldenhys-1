@@ -120,6 +120,18 @@ h4 {
     margin-bottom: 3rem;
 }
 
+@media screen and (max-width: 500px) {
+    .product-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
 .worskshop-section-heading {
     letter-spacing: 4px;
     font-size: 22px;
