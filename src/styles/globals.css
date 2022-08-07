@@ -130,12 +130,13 @@ h4 {
         text-align: center;
         margin-right: 0;
     }
-}
 
-.worskshop-section-heading {
-    letter-spacing: 4px;
-    font-size: 22px;
-    margin: 16px;
+    .ws-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 }
 
 .ws-title-section {
@@ -145,6 +146,44 @@ h4 {
     align-items: flex-start;
 }
 
+.ws-info-button {
+    width: 133px;
+    height: 56px;
+    margin: 0 15px;
+    padding: 0 44px;
+}
+
+@media screen and (max-width: 700px) {
+    .workshop-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        margin-bottom: 28px;
+    }
+    
+    .ws-title-section {
+        align-items: center;
+    }
+
+    .ws-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .ws-info-button {
+        margin: auto;
+        padding: 0;
+    }
+}
+
+.worskshop-section-heading {
+    letter-spacing: 4px;
+    font-size: 22px;
+    margin: 16px;
+}
 .upcoming-workshops {
     margin: 50px 4rem;
     background: #F5F5F5;
@@ -161,12 +200,7 @@ h4 {
     margin-bottom: 2rem;
 }
 
-.ws-info-button {
-    width: 133px;
-    height: 56px;
-    margin: 0 15px;
-    padding: 0 44px;
-}
+
 
 .random-image {
     height: 347px;
